@@ -1,5 +1,6 @@
-// components/StoreProvider.js
-import { store } from '@/app/store';
+'use client'
+
+import { store } from '@/redux/store';
 import React from 'react';
 import { Provider } from 'react-redux';
 // import { Provider } from '@reduxjs/toolkit';

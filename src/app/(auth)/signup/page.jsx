@@ -126,7 +126,7 @@ const SignUp = () => {
     }
   };
   return (
-    <div>
+    <>
       <div className="container custom_container">
         <div className="">
           <div className="">
@@ -306,7 +306,7 @@ const SignUp = () => {
       </div>
       <br />
       <br />
-    </div>
+    </>
   );
 };
 

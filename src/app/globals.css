@@ -108,3 +108,36 @@ label {
 .custom-button {
   margin-top: 20px;
 }
+
+/* maybe reomve */
+.menu {
+  background-color: white;
+  justify-content: unset;
+  border: 1px solid;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  flex-wrap: unset;
+  gap: unset;
+}
+.menu a {
+  padding: 10px;
+  border-right: 1px solid;
+  cursor: pointer;
+  width: 20%;
+  text-align: center;
+}
+.menu a:last-child {
+  border: unset;
+}
+
+/*  */
+
+
+@media(max-width:500px){
+  .flexMain > div{
+    width: 100%;
+  }
+}

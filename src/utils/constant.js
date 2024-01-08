@@ -1,1 +1,1 @@
-const domainName = "http://localhost:3001/"
+export const backEndUrl = "http://localhost:3000/fetch-image/"

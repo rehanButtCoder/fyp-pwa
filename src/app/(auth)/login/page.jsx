@@ -1,11 +1,15 @@
 "use client";
+import { userLoggingIn } from "@/redux/user/userSlice";
 import { login } from "@/services/auth/auth";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 
 const Login = () => {
+  const dispatch = useDispatch();
+
   const router = useRouter();
 
   const [loader, setLoader] = useState(false);
@@ -23,6 +27,7 @@ const Login = () => {
     };
     const resp = await login(data)
     if (resp?.status === 200 && resp?.data?.data?.role === 'customer') {
+      dispatch(userLoggingIn(resp.data));
       localStorage.setItem('easyPayPwa', JSON.stringify(resp.data));
       router.push("/");
     } else {

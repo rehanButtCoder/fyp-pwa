@@ -1,5 +1,9 @@
 "use client";
-import { registerUser } from "@/services/auth/auth";
+import {
+  registerUser,
+  sendResetMail,
+  sendVerificationMail,
+} from "@/services/auth/auth";
 import { uploadImage } from "@/services/imageupload/uploadImage";
 import { SingleImageUploader } from "@/utils/functions";
 import Image from "next/image";
@@ -44,7 +48,7 @@ const SignUp = () => {
       const formDataImg = new FormData();
       formDataImg.append("image", picture);
       const imageResponse = await uploadImage(formDataImg);
-      if (imageResponse.status === 200) {
+      if (imageResponse?.status === 200) {
         data.userImageUrl = imageResponse.data.filename;
       } else {
         Swal.fire({
@@ -62,7 +66,7 @@ const SignUp = () => {
       const imageResponse1 = await uploadImage(formDataImg1);
       formDataImg2.append("image", cnicBackpicture);
       const imageResponse2 = await uploadImage(formDataImg2);
-      if (imageResponse1.status === 200 && imageResponse2.status === 200) {
+      if (imageResponse1?.status === 200 && imageResponse2?.status === 200) {
         data.cnicImageUrl = [
           imageResponse1.data.filename,
           imageResponse2.data.filename,
@@ -76,11 +80,33 @@ const SignUp = () => {
         });
         setLoader(false);
       }
-      // back image
-      debugger;
       const resp = await registerUser(data);
       if (resp?.status === 200) {
-        router.push("/login");
+        const data1 = {
+          email: data.email,
+        };
+        const resp = await sendVerificationMail(data1);
+        if (resp?.status === 200) {
+          Swal.fire({
+            title:
+              resp?.data?.message ||
+              "Verification Link sent.Please verify your account.",
+            timer: 2100,
+            icon: "success",
+            showConfirmButton: false,
+          });
+          setTimeout(() => {
+            router.push(`/resendemailverification?id=${data.email}`);
+          }, 2500);
+        } else {
+          setLoader(false);
+          Swal.fire({
+            title: resp?.data?.message || "Server Error",
+            timer: 1500,
+            icon: "error",
+            showConfirmButton: false,
+          });
+        }
       } else {
         setLoader(false);
         Swal.fire({

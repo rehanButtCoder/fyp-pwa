@@ -1,12 +1,11 @@
 "use client";
 
-import { sendResetMail } from "@/services/auth/auth";
+import Swal from "sweetalert2";
+import { sendVerificationMail } from "@/services/auth/auth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import Swal from "sweetalert2";
 
-// import img1 from "../images/Forgot password.png";
-function ForgetPage() {
+const ResendMailPage = () => {
   const [loader, setLoader] = useState(false);
 
   const {
@@ -19,12 +18,10 @@ function ForgetPage() {
     const data = {
       email: fData.email,
     };
-    const resp = await sendResetMail(data);
-
-    debugger
+    const resp = await sendVerificationMail(data);
     if (resp?.status === 200) {
       Swal.fire({
-        title: resp?.data?.message || "Forgot Page Link sent.Please check your inbox",
+        title: resp?.data?.message || "Email Link Sent!",
         timer: 1500,
         icon: "success",
         showConfirmButton: false,
@@ -32,24 +29,23 @@ function ForgetPage() {
     } else {
       setLoader(false);
       Swal.fire({
-        title: resp?.data?.message || "Server Error",
+        title: resp?.data?.message || "Invalid Carendentials",
         timer: 1500,
         icon: "error",
         showConfirmButton: false,
       });
     }
   };
-
   return (
-    <div class="main">
+    <>
       {/* <div class="custom_img1">
         <img src={img1} alt="img" />
       </div> */}
-      <h1 class="heading">Find Your Account</h1>
+      <h1 class="heading">Did not recieved your verification link?</h1>
       <div class="custom_fields">
         <label for="">Please enter your email address</label>
         <input
-          type="email"
+          type="text"
           className="form-control"
           placeholder="customer@gmail.com"
           {...register("email", { required: true })}
@@ -58,10 +54,11 @@ function ForgetPage() {
       </div>
       <div class="custom_button">
         <button disabled={loader} onClick={handleSubmit(onSubmit)}>
-          Send Reset Link
+          Send Link Again
         </button>
       </div>
-    </div>
+    </>
   );
-}
-export default ForgetPage;
+};
+
+export default ResendMailPage;

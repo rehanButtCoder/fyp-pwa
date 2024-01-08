@@ -27,10 +27,30 @@ export const sendResetMail = async (body) => {
         return err.response
     }
 }
+export const sendVerificationMail = async (body) => {
+    try {
+        // debugger
+        const response = await axios.post("send-mail", body);
+        return response;
+    } catch (err) {
+        return err.response
+    }
+}
+
 export const registerUser = async (body) => {
     try {
         // debugger
         const response = await axios.post("users", body);
+        return response;
+    } catch (err) {
+        return err.response
+    }
+}
+
+export const verifyUser = async (userId,token) => {
+    try {
+        // debugger
+        const response = await axios.get(`verify-user/${userId}/${token}`);
         return response;
     } catch (err) {
         return err.response

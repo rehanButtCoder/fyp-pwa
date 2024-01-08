@@ -1,4 +1,5 @@
 "use client";
+import UserUpdateModal from "@/components/modals/UserUpdateModal";
 import useGetDataById from "@/hooks/fetchSingleData";
 import { backEndUrl } from "@/utils/constant";
 import { SingleImageUploader } from "@/utils/functions";
@@ -9,43 +10,33 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Profile = () => {
   const userData = useSelector((state) => state.user.userData.data);
-  console.log(userData);
-  const [loader, setLoader] = useState(false);
-  // for user image
-  const [picture, setPicture] = useState(null);
-  const [imgData, setImgData] = useState(true);
-  // for front cncic image
-  const [cnicFrontpicture, setCnicFrontPicture] = useState(null);
-  const [cnicFrontImgData, setCnicFrontImgData] = useState();
-  // for back cncic image
-  const [cnicBackpicture, setCnicBackPicture] = useState(null);
-  const [cnicBackImgData, setCnicBackImgData] = useState();
+  // console.log(userData);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  //
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
   // const data = useGetDataById();
   // console.log(data);
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm();
 
   useEffect(() => {}, []);
 
   return (
     <div className="container">
-      <>
         <div className="container custom_container">
-          <div className="">
-            <div className="">
+            <div>
               <button
-                // disabled={loader}
-                // onClick={handleSubmit(onSubmit)}
+                onClick={openModal}
                 className=" btn btn-primary custom-button"
               >
                 Edit Details
               </button>
+              <UserUpdateModal userData={userData} isOpen={modalIsOpen} closeModal={closeModal} setModalIsOpen={setModalIsOpen} />
+
               <h3 class="custom_heading">Profile Picture</h3>
               {/* <SingleImageUploader
                 setPicture={setPicture}
@@ -98,7 +89,6 @@ const Profile = () => {
                 </div>
               </div>
             </div>
-          </div>
         </div>
 
         {/* User account_detail_section  */}
@@ -172,7 +162,6 @@ const Profile = () => {
         <br />
         <br />
         <br />
-      </>
     </div>
   );
 };

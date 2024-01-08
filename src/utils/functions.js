@@ -9,7 +9,6 @@ export function SingleImageUploader(props) {
   const { setPicture, setImgData } = props;
 
   const imagesPreview = (e) => {
-    debugger;
     if (e.target.files[0]) {
       const allowedImage = [
         "image/jpeg",

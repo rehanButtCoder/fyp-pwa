@@ -25,23 +25,26 @@ button{
   padding-right: 10px;
 }
 
-.row {
+.flexMain {
   display: flex;
+  gap: 20px;
   flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
 }
-
-.col-lg-6 {
-  flex: 0 0 50%;
-  max-width: 50%;
+.flexMain > div {
+  width: 48%;
 }
-
-.col-md-6 {
-  flex: 0 0 50%;
-  max-width: 50%;
+h3{
+  font-size: 25px;
+  font-weight: 700;
 }
-
+.error{
+  color: red;
+}
+.sizeSet {
+  /* width: 211px;
+  height: 211px; */
+  object-fit: cover;
+}
 /* Styles for the profile section */
 .profile_col {
   text-align: center;

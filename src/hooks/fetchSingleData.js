@@ -1,34 +1,38 @@
 /* eslint-disable no-debugger */
 /* eslint-disable import/no-unresolved */
-import { getSingleUser } from '@/services/users/user';
-import { useState, useEffect } from 'react';
-import Swal from 'sweetalert2';
+import { getallCustomerOrders } from "@/services/orders/order";
+import { getSingleUser } from "@/services/users/user";
+import { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
-const useGetDataById = (id) => {
+const useGetDataById = (id, value) => {
   const [data, setData] = useState();
 
   const getFunc = async () => {
     try {
       let response;
-      if (id) {
+      if (value === "user") {
         response = await getSingleUser(id);
+      } else if (value === "order") {
+        response = await getallCustomerOrders(id);
       }
-      //  else {
-      //   response = await getAllCustomers();
-      // }
-
+      
       if (response.status === 200) {
-        setData(response.data.data);
+        if (value === "order") {
+          setData(response.data);
+        } else {
+          setData(response.data.data);
+        }
       } else {
         Swal.fire({
           title: response.data.message,
           timer: 1500,
-          icon: 'error',
+          icon: "error",
           showConfirmButton: false,
         });
       }
     } catch (error) {
-      console.error('Error in getFunc:', error);
+      console.error("Error in getFunc:", error);
     }
   };
 
@@ -39,4 +43,4 @@ const useGetDataById = (id) => {
   return data;
 };
 
-export default useGetDataById ;
+export default useGetDataById;

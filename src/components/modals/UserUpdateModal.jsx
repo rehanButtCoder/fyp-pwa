@@ -24,7 +24,7 @@ const UserUpdateModal = ({ userData, isOpen, closeModal, setModalIsOpen }) => {
   //   const [cnicBackpicture, setCnicBackPicture] = useState(null);
   //   const [cnicBackImgData, setCnicBackImgData] = useState();
 
-  console.log(userData);
+  // console.log(userData);
   const {
     register,
     handleSubmit,

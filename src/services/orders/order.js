@@ -26,6 +26,19 @@ export const getSingleOrder = async (id) => {
     return err.response;
   }
 };
+export const getallCustomerOrders = async (customerId, orderName) => {
+  try {
+    // debugger
+    const config = {
+      headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('easyPayPwa'))?.token}` },
+    };
+    const response = await axios.get(`order/customer-orders/${customerId}`, config);
+    // const response = await axios.get(`order/customer-orders/${customerId}?orderName=${orderName}`, config);
+    return response;
+  } catch (err) {
+    return err.response;
+  }
+};
 export const getallShopOrders = async (shopId, orderName) => {
   try {
     // debugger

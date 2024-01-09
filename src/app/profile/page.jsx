@@ -4,7 +4,7 @@ import useGetDataById from "@/hooks/fetchSingleData";
 import { backEndUrl } from "@/utils/constant";
 import { SingleImageUploader } from "@/utils/functions";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -22,8 +22,6 @@ const Profile = () => {
   };
   // const data = useGetDataById();
   // console.log(data);
-
-  useEffect(() => {}, []);
 
   return (
     <div className="container">

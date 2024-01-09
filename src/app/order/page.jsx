@@ -40,10 +40,15 @@ const Order = () => {
       width: "150px",
     },
     {
+      name: "Date",
+      selector: (row) => row?.date,
+      width: "130px",
+    },
+    {
       name: "Status",
       button: true,
       cell: (row) => (
-        <div style={{color:"#0d6efd",fontWeight:"bold"}}>
+        <div style={{ color: "#0d6efd", fontWeight: "bold" }}>
           {capitalizeFirstLetter(row?.orderStatus)}
         </div>
       ),
@@ -61,7 +66,7 @@ const Order = () => {
 
   const data = useGetDataById(userData._id, "order");
   const newArray = data?.map((item) => item.orderData);
-//   console.log(newArray);
+  //   console.log(newArray);
 
   return (
     <div className="container">

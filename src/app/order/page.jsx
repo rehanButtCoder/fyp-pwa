@@ -58,7 +58,7 @@ const Order = () => {
   ];
 
   const onRowClicked = (order) => {
-    console.log(order);
+    // console.log(order);
     setTimeout(() => {
       router.push(`/order/${order._id}`);
     }, 100);

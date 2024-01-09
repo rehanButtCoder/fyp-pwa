@@ -1,6 +1,6 @@
 /* eslint-disable no-debugger */
 /* eslint-disable import/no-unresolved */
-import { getallCustomerOrders } from "@/services/orders/order";
+import { getSingleOrder, getallCustomerOrders } from "@/services/orders/order";
 import { getSingleUser } from "@/services/users/user";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
@@ -15,8 +15,10 @@ const useGetDataById = (id, value) => {
         response = await getSingleUser(id);
       } else if (value === "order") {
         response = await getallCustomerOrders(id);
+      } else if (value === "singleOrder") {
+        response = await getSingleOrder(id);
       }
-      
+
       if (response.status === 200) {
         if (value === "order") {
           setData(response.data);

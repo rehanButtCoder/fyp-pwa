@@ -48,14 +48,18 @@ const OrderSinglePage = ({ params }) => {
       }
     );
   };
-  //
 
+  // params.orderId is from orderId
+  // order.id is single id from months of order plans and we are in [...orderstatus] and it can catch any route in below code
   const onRowClicked = (order) => {
-    // console.log(order);
+    console.log(order);
     setTimeout(() => {
-      //   router.push(`/order/${order._id}`);
+      router.push(
+        `/order/${params.orderId}/${order.id}/${order.month}/${order.status}/${order.amountToBePayed}/${order.productName}`
+      );
     }, 100);
   };
+
   const columns = [
     {
       name: "No.",
@@ -91,7 +95,14 @@ const OrderSinglePage = ({ params }) => {
     {
       name: "Action",
       cell: (row) => (
-        <div style={{  fontWeight: "bold",border:"1px solid",borderRadius:"50%",padding:"5px 10px" }}>
+        <div
+          style={{
+            fontWeight: "bold",
+            border: "1px solid",
+            borderRadius: "50%",
+            padding: "5px 10px",
+          }}
+        >
           View
         </div>
       ),
@@ -133,14 +144,18 @@ const OrderSinglePage = ({ params }) => {
             </span>
           </h3>
           <br />
-          <div style={{ width: "100%" }}>
+          <div>
             <DataTable
               title="Order Plans"
               customStyles={customStyles}
               columns={columns}
               data={modifiedArray}
               onRowClicked={onRowClicked}
+              pagination
             />
+            <br />
+            <br />
+            <br />
           </div>
         </>
       )}

@@ -25,7 +25,8 @@ const MainMenu = () => {
           <Link href="/order">Orders</Link>
           {loggedInUserData && <Link href="/profile">Profile</Link>}
           <Link href="/map">Map</Link>
-          <Link href="/filterbox">Notifications</Link>
+          {/* <Link href="/filterbox">Notifications</Link> */}
+          <Link href="/notifications">Notifications</Link>
           {loggedInUserData ? (
             <Link href="" onClick={logout}>
               Logout

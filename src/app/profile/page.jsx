@@ -43,7 +43,7 @@ const Profile = () => {
               <div className="marginTB14">
                 <Image
                   className="sizeSet"
-                  src={backEndUrl + userData.userImageUrl}
+                  src={backEndUrl + userData?.userImageUrl}
                   width={211}
                   height={211}
                   alt="Picture of the author"
@@ -61,7 +61,7 @@ const Profile = () => {
                   <div className="marginTB14">
                     <Image
                       className="sizeSet"
-                      src={backEndUrl + userData.cnicImageUrl[0]}
+                      src={backEndUrl + userData?.cnicImageUrl[0]}
                       width={211}
                       height={211}
                       alt="Picture of the author"
@@ -78,7 +78,7 @@ const Profile = () => {
                   <div className="marginTB14">
                     <Image
                       className="sizeSet"
-                      src={backEndUrl + userData.cnicImageUrl[1]}
+                      src={backEndUrl + userData?.cnicImageUrl[1]}
                       width={211}
                       height={211}
                       alt="Picture of the author"
@@ -100,7 +100,7 @@ const Profile = () => {
                   type="text"
                   className="form-control "
                   placeholder="First Name"
-                  value={userData.fname}
+                  value={userData?.fname}
                   readOnly
                 />
               </div>
@@ -113,7 +113,7 @@ const Profile = () => {
                   type="text"
                   className="form-control"
                   placeholder="Last Name"
-                  value={userData.lname}
+                  value={userData?.lname}
                   readOnly
                 />
               </div>
@@ -125,7 +125,7 @@ const Profile = () => {
                   type="email"
                   className="form-control"
                   placeholder="customer@gmail.com"
-                  value={userData.email}
+                  value={userData?.email}
                   readOnly
                 />
               </div>
@@ -138,7 +138,7 @@ const Profile = () => {
                   type="number"
                   className="form-control"
                   placeholder="+92000000000"
-                  value={userData.phoneNumber}
+                  value={userData?.phoneNumber}
                   readOnly
                 />
               </div>
@@ -150,7 +150,7 @@ const Profile = () => {
                   type="text"
                   className="form-control"
                   placeholder="Address"
-                  value={userData.address}
+                  value={userData?.address}
                   readOnly
                 />
               </div>

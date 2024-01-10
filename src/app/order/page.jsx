@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 
 const Order = () => {
   const router = useRouter();
-  const userData = useSelector((state) => state.user.userData.data);
+  const userData = useSelector((state) => state.user.userData?.data);
 
   const [loder, setLoder] = useState(false);
   //   const [data, setData] = useState([]);
@@ -64,7 +64,7 @@ const Order = () => {
     }, 100);
   };
 
-  const data = useGetDataById(userData._id, "order");
+  const data = useGetDataById(userData?._id, "order");
   const newArray = data?.map((item) => item.orderData);
   //   console.log(newArray);
 

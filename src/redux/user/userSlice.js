@@ -13,6 +13,10 @@ export const userSlice = createSlice({
             // debugger
             state.userData = action.payload
         },
+        userLoggingOut: (state, action) => {
+            // debugger
+            state.userData = {}
+        },
         addUserData: (state, action) => {
             // debugger
             state.userData = action.payload
@@ -32,6 +36,6 @@ export const userSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addUserData, userRemoveData, userLoggingIn } = userSlice.actions
+export const { addUserData, userRemoveData, userLoggingIn,userLoggingOut } = userSlice.actions
 
 export default userSlice.reducer

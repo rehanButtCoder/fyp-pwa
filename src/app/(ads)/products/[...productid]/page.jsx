@@ -1,23 +1,39 @@
 /* eslint-disable react/jsx-key */
 "use client";
 import useGetDataById from "@/hooks/fetchSingleData";
+import { getSingleUser } from "@/services/users/user";
 import { backEndUrl } from "@/utils/constant";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 // import { useEffect, useState } from "react";
 
 const ProductSinglePage = ({ params }) => {
-  // const [data, setData] = useState();
+  const loggedInUserData = useSelector((state) => state.user.userData?.data);
+
+  const [userData, setUserData] = useState();
   const data = useGetDataById(params.productid, "product");
-  // const newArray = data?.map((item) => item.orderData);
-  console.log(data);
-  // useEffect(() => {
-  //   if (ifData) {
-  //     setData(ifData);
-  //   }
-  // }, [ifData]);
+
+  console.log(loggedInUserData);
+  const getSingleUserFunc = async (id) => {
+    const resp = await getSingleUser(id);
+    if (resp.status === 200) {
+      setUserData(resp.data.data);
+    }
+  };
+  useEffect(() => {
+    if (data) {
+      getSingleUserFunc(data?.shopkeeperId);
+    }
+  }, [data]);
 
   return (
     <div className="container">
+      {!loggedInUserData && (
+        <h3 style={{textAlign:"center"}}>
+          (You have to be log in first to see shop address)
+        </h3>
+      )}
       <h3>Cover Image</h3>
       <Image
         className="productImg"
@@ -41,6 +57,12 @@ const ProductSinglePage = ({ params }) => {
         })}
       </div>
       <br />
+      {loggedInUserData && userData?.address && (
+        <h3>
+          Shop Address:{" "}
+          <span style={{ fontWeight: "400" }}>{userData?.address}</span>{" "}
+        </h3>
+      )}
       <h3>
         Product Name:{" "}
         <span style={{ fontWeight: "400" }}>{data?.productName}</span>{" "}

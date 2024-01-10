@@ -13,6 +13,7 @@ const useGetDataById = (id, value) => {
     try {
       let response;
       if (value === "user") {
+        // debugger
         response = await getSingleUser(id);
       } else if (value === "order") {
         response = await getallCustomerOrders(id);
@@ -29,12 +30,12 @@ const useGetDataById = (id, value) => {
           setData(response.data.data);
         }
       } else {
-        Swal.fire({
-          title: response.data.message,
-          timer: 1500,
-          icon: "error",
-          showConfirmButton: false,
-        });
+        // Swal.fire({
+        //   title: response.data.message,
+        //   timer: 1500,
+        //   icon: "error",
+        //   showConfirmButton: false,
+        // });
       }
     } catch (error) {
       console.error("Error in getFunc:", error);

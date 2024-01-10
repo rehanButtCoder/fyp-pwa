@@ -37,9 +37,9 @@ const UserUpdateModal = ({ userData, isOpen, closeModal, setModalIsOpen }) => {
     const data = {
       fname: fData.fname,
       lname: fData.lname,
-      email: fData.email,
+      // email: fData.email,
       address: fData.address,
-      phoneNumber: fData.phNumber,
+      phoneNumber: fData.phoneNumber,
     };
 
     if (picture) {
@@ -151,7 +151,7 @@ const UserUpdateModal = ({ userData, isOpen, closeModal, setModalIsOpen }) => {
                 )}
               </div>
             </div>
-            <div className="">
+            {/* <div className="">
               <label for="">Email</label>
               <div className=" input-group mb-3 custom-input-group">
                 <input
@@ -164,7 +164,7 @@ const UserUpdateModal = ({ userData, isOpen, closeModal, setModalIsOpen }) => {
                   <span className="error">This field is required</span>
                 )}
               </div>
-            </div>
+            </div> */}
 
             <div className="">
               <label for="">Phone No</label>
@@ -175,7 +175,7 @@ const UserUpdateModal = ({ userData, isOpen, closeModal, setModalIsOpen }) => {
                   placeholder="+92000000000"
                   {...register("phoneNumber", { required: true })}
                 />
-                {errors.phNumber && (
+                {errors.phoneNumber && (
                   <span className="error">This field is required</span>
                 )}
               </div>

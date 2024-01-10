@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 function ResetPage() {
-  const router = useRouter()
+  const router = useRouter();
   // use/router does not works in client component
   // so getting query value we have to use useEffect
   const [userID, setUserID] = useState();
@@ -15,9 +15,8 @@ function ResetPage() {
   useEffect(() => {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    setUserID(urlParams.get("userId"))
-    setUserToken(urlParams.get("userToken"))
-
+    setUserID(urlParams.get("userId"));
+    setUserToken(urlParams.get("userToken"));
   }, []);
   console.log(userID);
   console.log(userToken);
@@ -61,14 +60,12 @@ function ResetPage() {
   };
   return (
     <>
-      {/* <div class="custom_img1">
-          <img src={img1} alt="img" />
-        </div> */}
+      <h1 class="heading">Reset Your Password</h1>
       <div class="custom_fields1">
         <label for="">Email:</label>
         <input
           type="email"
-          className="form-control"
+          className="form-control form-control1"
           placeholder="customer@gmail.com"
           {...register("email", { required: true })}
         />
@@ -78,7 +75,7 @@ function ResetPage() {
         <label for="">Type Password:</label>
         <input
           type="password"
-          className="form-control"
+          className="form-control form-control1"
           placeholder="customer@gmail.com"
           {...register("password", { required: true })}
         />
@@ -90,7 +87,7 @@ function ResetPage() {
         <label for="">Re-type Password:</label>
         <input
           type="password"
-          className="form-control"
+          className="form-control form-control1"
           placeholder="customer@gmail.com"
           {...register("conpassword", { required: true })}
         />
@@ -98,8 +95,8 @@ function ResetPage() {
           <span className="error">This field is required</span>
         )}
       </div>
-      <div class="custom_button2">
-        <button disabled={loader} onClick={handleSubmit(onSubmit)}>
+      <div class="custom_button2 custom_button">
+        <button className="resetpass_btn " disabled={loader} onClick={handleSubmit(onSubmit)}>
           Submit
         </button>
       </div>

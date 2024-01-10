@@ -129,7 +129,8 @@ const SignUp = () => {
     <>
       <div className="container custom_container">
         <div className="">
-          <div className="">
+          <h4>Signup Account Here</h4>
+          <div className="byali">
             <h3 class="custom_heading">Profile Picture</h3>
             <SingleImageUploader
               setPicture={setPicture}
@@ -149,7 +150,7 @@ const SignUp = () => {
           </div>
           <div className="">
             <div className="">
-              <div className=" ">
+              <div className="byali">
                 <h3>CNIC front Image</h3>
                 <SingleImageUploader
                   setPicture={setCnicFrontPicture}
@@ -167,7 +168,7 @@ const SignUp = () => {
                   )}
                 </div>
               </div>
-              <div className=" ">
+              <div className="byali">
                 <h3>CNIC back Image</h3>
 
                 <SingleImageUploader
@@ -194,7 +195,7 @@ const SignUp = () => {
       {/* User account_detail_section  */}
       <div className="container">
         <h3>User Details</h3>
-        <div className="flexMain">
+        <div className="flexMain byali">
           <div className="">
             <label for="">First Name</label>
             <div className="input-group mb-3 custom-input-group">
@@ -283,7 +284,7 @@ const SignUp = () => {
           </div>
           <div className="">
             <label for="">Address</label>
-            <div className=" input-group mb-3 custom-input-group">
+            <div className=" input-group mb-3 custom-input-group1">
               <input
                 type="text"
                 className="form-control"
@@ -299,7 +300,7 @@ const SignUp = () => {
         <button
           disabled={loader}
           onClick={handleSubmit(onSubmit)}
-          className=" btn btn-primary custom-button"
+          className=" btn btn-primary custom-button createaccount_btn"
         >
           Create Account
         </button>

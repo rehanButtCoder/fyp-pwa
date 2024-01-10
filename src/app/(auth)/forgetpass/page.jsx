@@ -46,18 +46,18 @@ function ForgetPage() {
         <img src={img1} alt="img" />
       </div> */}
       <h1 class="heading">Find Your Account</h1>
-      <div class="custom_fields">
+      <div class="custom_fields custom_fields1">
         <label for="">Please enter your email address</label>
         <input
           type="email"
-          className="form-control"
+          className="form-control form-control1"
           placeholder="customer@gmail.com"
           {...register("email", { required: true })}
         />
         {errors.email && <span className="error">This field is required</span>}{" "}
       </div>
       <div class="custom_button">
-        <button disabled={loader} onClick={handleSubmit(onSubmit)}>
+        <button className="resetpass_btn" disabled={loader} onClick={handleSubmit(onSubmit)}>
           Send Reset Link
         </button>
       </div>

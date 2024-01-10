@@ -44,8 +44,8 @@ const Login = () => {
     <div>
 
       {/* User account_detail_section  */}
-      <div className="container">
-        <h3>User Login</h3>
+      <div className="container container1">
+        <h3 className="login_heading">User Login</h3>
         
         <div className="flexMain">
 

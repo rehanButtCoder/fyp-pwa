@@ -2,14 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
 /*  */
-button{
+button {
   background-color: #0d6efd;
   padding: 10px 35px;
   color: white;
@@ -17,7 +17,7 @@ button{
 }
 /* Styles for the container and columns */
 .container {
-  width:  100%;
+  width: 100%;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -33,11 +33,11 @@ button{
 .flexMain > div {
   width: 48%;
 }
-h3{
+h3 {
   font-size: 25px;
   font-weight: 700;
 }
-.error{
+.error {
   color: red;
 }
 .sizeSet {
@@ -228,11 +228,94 @@ label {
   }
 }
 
+/* Css by Ali Ahmad.  */
+/* css for forgetpass page, resendemailverification page and reset page because common 
+classes are present in three above pages.  */
+.main {
+  margin-top: 15%;
+}
+.heading {
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-align: center;
+}
+.custom_button {
+  margin-top: 10px;
+}
+.custom_fields1 {
+  width: 70%;
+  margin: auto;
+}
+.custom_button {
+  text-align: center;
+}
+@media screen and (min-width: 250px) and (max-width: 700px) {
+  .resetpass_btn {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
+  .heading {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .custom_fields1 label {
+    font-size: 10px;
+  }
+  .form-control1 {
+    padding: 0px;
+  }
+  .custom_fields1 {
+    width: 90%;
+    margin: auto;
+  }
+}
+/* css for login page  */
+
+.login_heading {
+  text-align: center;
+  margin: 20px 20px;
+}
+.container1 {
+  margin-top: 15%;
+}
+
+/* css for signup page.  */
+
+@media screen and (max-width: 767px) {
+  .flexMain > div {
+    width: 100%; /* Set full width for smaller screens */
+  }
+}
+
+@media screen and (max-width: 567px) {
+  .custom-input-group1 {
+    margin-bottom: 10px; /* Adjust margin for smaller screens */
+  }
+
+  .form-control {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+  .createaccount_btn {
+    padding: 10px 15px;
+    font-size: 10px;
+  }
+}
+
+.byali {
+  margin: 40px 0px;
+}
+.containerbyali {
+  margin: 40px 0px;
+}
+h4 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+}
 /*  */
 
-
-@media(max-width:500px){
-  .flexMain > div{
+@media (max-width: 500px) {
+  .flexMain > div {
     width: 100%;
   }
 }

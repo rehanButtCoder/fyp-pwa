@@ -9,7 +9,7 @@ const MainMenu = () => {
     <>
       {pathName !== "/login" ? (
         <div className="flexMain menu">
-          <Link href="/profile">Ads</Link>
+          <Link href="/products">Ads</Link>
           <Link href="/order">Orders</Link>
           <Link href="/profile">Profile</Link>
           <Link href="/profile">Map</Link>

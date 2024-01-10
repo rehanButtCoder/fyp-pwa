@@ -1,6 +1,7 @@
 /* eslint-disable no-debugger */
 /* eslint-disable import/no-unresolved */
 import { getSingleOrder, getallCustomerOrders } from "@/services/orders/order";
+import { getSingleProduct } from "@/services/products/product";
 import { getSingleUser } from "@/services/users/user";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
@@ -17,6 +18,8 @@ const useGetDataById = (id, value) => {
         response = await getallCustomerOrders(id);
       } else if (value === "singleOrder") {
         response = await getSingleOrder(id);
+      } else if (value === "product") {
+        response = await getSingleProduct(id);
       }
 
       if (response.status === 200) {

@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 
 const UserUpdateModal = ({ userData, isOpen, closeModal, setModalIsOpen }) => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [loader, setLoader] = useState(false);
   // for user image
@@ -94,16 +94,16 @@ const UserUpdateModal = ({ userData, isOpen, closeModal, setModalIsOpen }) => {
     >
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="container">
-          <h3>User Details</h3>
-          <h4 class="custom_heading">Profile Picture</h4>
+          <h3 className="heading2">User Details</h3>
+          <h4 class="custom_heading heading2">Profile Picture</h4>
           <SingleImageUploader
             setPicture={setPicture}
             setImgData={setImgData}
           />
-          <div style={{ marginBottom: "15px" }}>
+          <div className="sizeSet2" style={{ marginBottom: "15px" }}>
             {picture ? (
               <Image
-                className="sizeSet"
+                className="sizeSet sizeSet2"
                 src={imgData}
                 width={211}
                 height={211}
@@ -113,7 +113,7 @@ const UserUpdateModal = ({ userData, isOpen, closeModal, setModalIsOpen }) => {
             ) : (
               <Image
                 style={{ marginTop: "15px" }}
-                className="sizeSet"
+                className="sizeSet sizeSet2"
                 src={backEndUrl + userData.userImageUrl}
                 width={211}
                 height={211}
@@ -199,13 +199,16 @@ const UserUpdateModal = ({ userData, isOpen, closeModal, setModalIsOpen }) => {
 
         <br />
         {/* Add more form fields as needed */}
-        <button
-          style={{ backgroundColor: "#0d6efd" }}
-          disabled={loader}
-          type="submit"
-        >
-          Update
-        </button>
+        <div className="editbtn-div">
+          <button
+            className="editbtn"
+            style={{ backgroundColor: "#0d6efd" }}
+            disabled={loader}
+            type="submit"
+          >
+            Update
+          </button>
+        </div>
       </form>
     </Modal>
   );

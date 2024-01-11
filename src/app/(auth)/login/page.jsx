@@ -25,30 +25,28 @@ const Login = () => {
       email: fData.email,
       password: fData.pass,
     };
-    const resp = await login(data)
-    if (resp?.status === 200 && resp?.data?.data?.role === 'customer') {
+    const resp = await login(data);
+    if (resp?.status === 200 && resp?.data?.data?.role === "customer") {
       dispatch(userLoggingIn(resp.data));
-      localStorage.setItem('easyPayPwa', JSON.stringify(resp.data));
+      localStorage.setItem("easyPayPwa", JSON.stringify(resp.data));
       router.push("/");
     } else {
       setLoader(false);
       Swal.fire({
         title: resp?.data?.message || "Invalid Carendentials",
         timer: 1500,
-        icon: 'error',
+        icon: "error",
         showConfirmButton: false,
       });
     }
   };
   return (
-    <div>
-
+    <>
       {/* User account_detail_section  */}
       <div className="container container1">
         <h3 className="login_heading">User Login</h3>
-        
-        <div className="flexMain">
 
+        <div className="flexMain">
           <div className="">
             <label for="">Email</label>
             <div className=" input-group mb-3 custom-input-group">
@@ -63,7 +61,7 @@ const Login = () => {
               )}
             </div>
           </div>
-          
+
           <div className="">
             <label for="">Password</label>
             <div className=" input-group mb-3 custom-input-group">
@@ -89,7 +87,7 @@ const Login = () => {
       </div>
       <br />
       <br />
-    </div>
+    </>
   );
 };
 

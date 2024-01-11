@@ -111,7 +111,7 @@ label {
 
 /* maybe reomve */
 .leaflet-container {
-  height: 90vh;
+  height: 80vh;
   /* width: 90%; */
   border-radius: 2rem;
 }

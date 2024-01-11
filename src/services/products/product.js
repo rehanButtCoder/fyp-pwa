@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import axios from '../axios';
 
 export const getAllProducts = async () => {
@@ -57,7 +56,7 @@ export const createProduct = async (body) => {
     const config = {
       headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('easyPayPwa'))?.token}` },
     };
-    const response = await axios.post('/product', body, config);
+    const response = await axios.post('product', body, config);
     return response;
   } catch (err) {
     return err.response;

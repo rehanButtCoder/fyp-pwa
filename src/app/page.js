@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
+    <div className="container">
       <Image
         src="/images/profile.png"
         width={111}

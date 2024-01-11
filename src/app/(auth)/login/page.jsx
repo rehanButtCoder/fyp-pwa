@@ -1,6 +1,7 @@
 "use client";
 import { userLoggingIn } from "@/redux/user/userSlice";
 import { login } from "@/services/auth/auth";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -75,6 +76,12 @@ const Login = () => {
                 <span className="error">This field is required</span>
               )}
             </div>
+            <p>
+              {" "}
+              <Link style={{ color: "#0d6efd" }} href="/forgetpass">
+                Forget Password?{" "}
+              </Link>
+            </p>
           </div>
         </div>
         <button
@@ -87,6 +94,12 @@ const Login = () => {
       </div>
       <br />
       <br />
+      <p style={{ textAlign: "center" }}>
+        Dont have account?{" "}
+        <Link style={{ color: "#0d6efd" }} href="/signup">
+          Register Here
+        </Link>
+      </p>
     </>
   );
 };

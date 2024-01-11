@@ -110,6 +110,12 @@ label {
 }
 
 /* maybe reomve */
+.leaflet-container {
+  height: 90vh;
+  /* width: 90%; */
+  border-radius: 2rem;
+}
+
 .menu {
   background-color: white;
   justify-content: unset;
